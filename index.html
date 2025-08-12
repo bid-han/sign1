@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKart - Login & Signup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .form-transition {
+            transition: all 0.3s ease-in-out;
+        }
+        .profile-preview {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #e5e7eb;
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-center">
+            <h1 class="text-3xl font-bold text-white mb-2"><img src="C:\Users\bidhan\Documents\BKart Project\Images\BKart Logo.jpg" alt="BKart Logo"></h1>        </div>
+
+        <!-- Form Container -->
+        <div class="p-6">
+            <!-- Toggle Buttons -->
+            <div class="flex mb-6 bg-gray-100 rounded-lg p-1">
+                <button id="loginTab" class="flex-1 py-2 px-4 rounded-md font-medium transition-all duration-200 bg-blue-600 text-white">
+                    Sign In
+                </button>
+                <button id="signupTab" class="flex-1 py-2 px-4 rounded-md font-medium transition-all duration-200 text-gray-600 hover:text-blue-600">
+                    Sign Up
+                </button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="form-transition">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Username or Email</label>
+                        <input type="text" id="loginUsername" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Enter your username or email" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                        <input type="password" id="loginPassword" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Enter your password" required>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                        </label>
+                        <a href="#" class="text-sm text-blue-600 hover:text-blue-800">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 transform hover:scale-105">
+                        Sign In to BKart
+                    </button>
+                </div>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signupForm" class="form-transition hidden">
+                <div class="space-y-4">
+                    <!-- Profile Picture Upload -->
+                    <div class="text-center">
+                        <div class="relative inline-block">
+                            <img id="profilePreview" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23d1d5db' viewBox='0 0 24 24'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E" class="profile-preview mx-auto">
+                            <label for="profilePicture" class="absolute bottom-0 right-0 bg-blue-600 text-white rounded-full p-2 cursor-pointer hover:bg-blue-700 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                            </label>
+                            <input type="file" id="profilePicture" accept="image/*" class="hidden">
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">Upload Profile Picture</p>
+                    </div>
+
+                    <!-- Name Fields -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                            <input type="text" id="firstName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="First name" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Surname</label>
+                            <input type="text" id="surname" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Surname" required>
+                        </div>
+                    </div>
+
+                    <!-- Username -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Username</label>
+                        <input type="text" id="signupUsername" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Choose a username" required>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Gmail</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="your.email@gmail.com" required>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" id="phoneNumber" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="+91 9876543210" required>
+                    </div>
+
+                    <!-- Password -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                        <input type="password" id="signupPassword" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Create a strong password" required>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Confirm Password</label>
+                        <input type="password" id="confirmPassword" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Confirm your password" required>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="flex items-center">
+                        <input type="checkbox" id="terms" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" required>
+                        <label for="terms" class="ml-2 text-sm text-gray-600">
+                            I agree to the <a href="#" class="text-blue-600 hover:text-blue-800">Terms and Conditions</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg font-medium hover:bg-green-700 transition-colors duration-200 transform hover:scale-105">
+                        Create BKart Account
+                    </button>
+                </div>
+            </form>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="hidden text-center p-6">
+                <div class="text-green-600 text-6xl mb-4">✅</div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Success!</h3>
+                <p class="text-gray-600" id="successText"></p>
+                <button onclick="resetForms()" class="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors" >
+                    <a href="C:\Users\bidhan\Documents\BKart Project\indexsample.html">Continue</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const loginTab = document.getElementById('loginTab');
+        const signupTab = document.getElementById('signupTab');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const successMessage = document.getElementById('successMessage');
+
+        loginTab.addEventListener('click', () => {
+            loginTab.classList.add('bg-blue-600', 'text-white');
+            loginTab.classList.remove('text-gray-600');
+            signupTab.classList.remove('bg-blue-600', 'text-white');
+            signupTab.classList.add('text-gray-600');
+            
+            loginForm.classList.remove('hidden');
+            signupForm.classList.add('hidden');
+            successMessage.classList.add('hidden');
+        });
+
+        signupTab.addEventListener('click', () => {
+            signupTab.classList.add('bg-blue-600', 'text-white');
+            signupTab.classList.remove('text-gray-600');
+            loginTab.classList.remove('bg-blue-600', 'text-white');
+            loginTab.classList.add('text-gray-600');
+            
+            signupForm.classList.remove('hidden');
+            loginForm.classList.add('hidden');
+            successMessage.classList.add('hidden');
+        });
+
+        // Profile picture preview
+        document.getElementById('profilePicture').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profilePreview').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Form validation and submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (username && password) {
+                showSuccess(`Welcome back, ${username}! You have successfully logged into BKart.`);
+            }
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value;
+            const surname = document.getElementById('surname').value;
+            const username = document.getElementById('signupUsername').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phoneNumber').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const terms = document.getElementById('terms').checked;
+            
+            // Validation
+            if (!terms) {
+                alert('Please accept the Terms and Conditions');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Phone validation (basic)
+            const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+            if (!phoneRegex.test(phone)) {
+                alert('Please enter a valid phone number');
+                return;
+            }
+            
+            if (firstName && surname && username && email && phone && password) {
+                showSuccess(`Welcome to BKart, ${firstName} ${surname}! Your account has been created successfully.`);
+            }
+        });
+
+        function showSuccess(message) {
+            document.getElementById('successText').textContent = message;
+            loginForm.classList.add('hidden');
+            signupForm.classList.add('hidden');
+            successMessage.classList.remove('hidden');
+        }
+
+        function resetForms() {
+            document.getElementById('loginForm').reset();
+            document.getElementById('signupForm').reset();
+            document.getElementById('profilePreview').src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23d1d5db' viewBox='0 0 24 24'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E";
+            successMessage.classList.add('hidden');
+            loginForm.classList.remove('hidden');
+            
+            // Reset tabs
+            loginTab.classList.add('bg-blue-600', 'text-white');
+            loginTab.classList.remove('text-gray-600');
+            signupTab.classList.remove('bg-blue-600', 'text-white');
+            signupTab.classList.add('text-gray-600');
+        }
+
+        // Real-time username availability check (demo)
+        document.getElementById('signupUsername').addEventListener('input', function(e) {
+            const username = e.target.value;
+            if (username.length > 3) {
+                // Simulate checking username availability
+                setTimeout(() => {
+                    if (username.toLowerCase() === 'admin' || username.toLowerCase() === 'test') {
+                        e.target.style.borderColor = '#ef4444';
+                        e.target.style.backgroundColor = '#fef2f2';
+                    } else {
+                        e.target.style.borderColor = '#10b981';
+                        e.target.style.backgroundColor = '#f0fdf4';
+                    }
+                }, 500);
+            } else {
+                e.target.style.borderColor = '#d1d5db';
+                e.target.style.backgroundColor = 'white';
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96cf6f86c5d44365',t:'MTc1NDgyODMwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
